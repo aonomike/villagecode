@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title><%= content_for?(:title) ? yield(:title) : "Village Code" %></title>
+      <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Village Code" %>">
+      <%= stylesheet_link_tag 'application'%>
+      <%= csrf_meta_tags %>
+      <link rel="icon" href="assets/favicon.png" type="image/png">
+      <meta name="viewport" content="width=device-width, initial-scale=0.9">
+      <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <%= render "layouts/navigation" %>
+        <div class="main-container">
+        
+            <section class="cover fullscreen image-bg overlay">
+                <div class="background-image-holder">
+                    <img alt="image" class="background-image" src="/assets/home2.jpg" />
+                </div>
+                <div class="container v-align-transform">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <div class="feature bordered text-center">
+                                <h4 class="uppercase">Register Here</h4>
+                                <form class="text-left">
+                                    <input type="text" name="name" placeholder="Username" />
+                                    <input type="text" name="email" placeholder="Email Address" />
+                                    <input type="password" placeholder="Password" />
+                                    <input type="password" placeholder="Confirm Password" />
+                                    <input type="submit" value="Register" />
+                                </form>
+                                <p class="mb0">By signing up, you agree to our
+                                    <a href="#">Terms Of Use</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+        
+        <%= javascript_include_tag 'application' %>
+    </body>
+</html>
