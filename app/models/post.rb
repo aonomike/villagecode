@@ -11,7 +11,8 @@ class Post < ActiveRecord::Base
   	has_attached_file :picture,
     :storage => :dropbox,
     :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
-    :dropbox_options => {:path => proc { |style| "posts/#{style}/#{id}_#{picture.original_filename}" }}
+    :dropbox_options => {:path => proc 
+      { |style| "posts/#{style}/#{id}_#{picture.original_filename}" }}
 
     validates_attachment_content_type :picture,
      :content_type => ['image/png', 'image/jpeg', 'image/jpg', 'image/gif'],
