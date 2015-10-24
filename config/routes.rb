@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root to: 'visitors#index'
   devise_for :users
-  resources :users
+  resources :users do
+    resources :posts
+  end
 
   resources :posts do
     resources :comments,:post_tags

@@ -1,0 +1,53 @@
+<div class="main-container">
+ <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <h4 class="uppercase mb16">New Blog Post</h4>
+                            <p class="lead mb64">
+                                Hii si wordpress!! Use the available tags to style your content  <>(p, blockquote, ul, li)
+                            </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                        <%=form_for(@post,:html => { :role => 'form',:class=>"form"}) do |form| %>
+                            <%= form.text_field  :post_title,:html=>"required",:placeholder=>"Post title "%>
+                            <input type="text" id="post_tags" name="post_tags" placeholder="Post Tags" />
+
+                            <div class="select-option">
+                                <i class="ti-angle-down"></i>
+                                <select  id="post_post_category" name="post[post_category]">
+                                    <option selected value="Default">Select A Category</option>
+                                    <option value="code_club">Code Club</option>
+                                    <option value="tbc">Teen Business Challenge</option>
+                                    <option value="we_make">We Make</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="select-option">
+                                <i class="ti-angle-down"></i>
+                                <select id="post_post_status" name="post[post_status]" required>
+                                        <option selected value="Default">Select Status</option>
+                                        <% Post::POST_STATUS.each do |status|%>
+                                            <% if !@post.post_status.nil? && @post.post_status==status%>
+                                                <option selected="true" value="<%=status%>"><%=status%></option>
+                                            <%else%>
+                                                <option value="<%=status%>"><%=status%></option>
+                                            <% end %>
+                                        <%end%>
+                                </select>
+                            </div>
+
+                            <%= form.text_area  :post_content,:placeholder=>"Content...",:rows=>10%>
+                            <input type="submit" value="Submit" />
+                        <%end%>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+</div>

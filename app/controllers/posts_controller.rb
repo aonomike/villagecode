@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 	end
 
 	def show
+		@post =Post.find(params[:id])
     end
 	
 	def new
@@ -13,6 +14,28 @@ class PostsController < ApplicationController
 	end
 
 	def create
+		@post = current_user.posts.build(post_params)
+		@post.read_count = 1
+		if @post.save
+			params['post_tags'].to_s.split(',').each do |tag|
+				post_tag = @post.post_tags.new
+				post_tag.tag = tag
+				post_tag.save
+			end
+
+			params["post_selected_categories"].to_s.split(',').each do|category_id|
+				categorized_post = CategorizedPost.new()
+				categorized_post.post_id = @post.id
+				categorized_post.category_id = category_id
+				categorized_post.save
+			end
+			
+			flash[:notice]="Thank you! Your submission has been received!"
+			redirect_to @post
+    	else
+    		redirect_to :action => 'new'
+    	end	
+
 	end
 	
 	def edit

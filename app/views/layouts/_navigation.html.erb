@@ -1,6 +1,21 @@
 <div class="nav-container">
             <a id="top"></a>
             <nav>
+                <%if current_user%>
+                <div class="nav-utility">
+                        <div class="module left">
+                            <i class="ti-user">&nbsp;</i>
+                            <span class="sub"><%=link_to current_user.name, current_user%></span>
+                        </div>
+                        <div class="module left">
+                            <i class="ti-id-badge">&nbsp;</i>
+                            <span class="sub">Editor</span>
+                        </div>
+                        <div class="module right">
+                          <%= link_to "<i class='ti-unlock'>&nbsp;</i>".html_safe, destroy_user_session_path, :method=>'delete' %>
+                        </div>
+                    </div>
+                    <%end%>
                 <div class="nav-bar">
                     <div class="module right">
                         <a href="/">
