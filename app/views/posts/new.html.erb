@@ -11,9 +11,43 @@
                     </div>
                     <!--end of row-->
                     <div class="row">
-                        <div class="col-sm-12 text-center">
+                        <div class="col-sm-12">
+                            <div>
+                            <form>
+                                <h5 class="uppercase">Select the Post type</h5>
+                                <div>
+                                    <div class="radio-option checked">
+                                        <div class="inner"></div>
+                                        <input type="radio" name="radio" value="radio1" />
+                                    </div>
+                                    <span>Default</span>
+                                </div>
+                                <div>
+                                    <div class="radio-option">
+                                        <div class="inner"></div>
+                                        <input type="radio" name="radio" value="radio1" />
+                                    </div>
+                                    <span>Link to Video/Audio</span>
+                                </div>
+                                <div>
+                                    <div class="radio-option">
+                                        <div class="inner"></div>
+                                        <input type="radio" name="radio" value="radio1" />
+                                    </div>
+                                    <span>Quote</span>
+                                </div>
+                            </form>
+                            </div>
+
                         <%=form_for(@post,:html => { :role => 'form',:class=>"form"}) do |form| %>
+
+                            <div class="input-with-label text-left">
+                                <span>Attach Image:</span>
+                                <%= form.file_field :picture%>
+                            </div>
+
                             <%= form.text_field  :post_title,:html=>"required",:placeholder=>"Post title "%>
+
                             <input type="text" id="post_tags" name="post_tags" placeholder="Post Tags" />
 
                             <div class="select-option">
