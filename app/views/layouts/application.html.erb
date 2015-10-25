@@ -17,7 +17,7 @@
           <div id="alert_message" class="alert alert-success alert-dismissible" >
             <span class="close" data-dismiss="alert">&times;</span>
             <span><%=flash[:notice].html_safe%></span>
-            <%flash[:notice] = "" %>
+            <%flash[:notice] = nil %>
           </div>
         <%end%>
 
