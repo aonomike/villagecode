@@ -24,7 +24,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    
+    redirect_to "/"
   end
 
   private 
