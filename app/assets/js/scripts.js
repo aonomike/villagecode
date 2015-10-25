@@ -10,6 +10,11 @@ var mr_firstSectionHeight,
 $(document).ready(function() { 
     "use strict";
 
+    $('#subscriber_btn').click(function() {
+        $('#new_subscriber').submit();
+        $('#subscribe_success').removeClass('hidden');
+        return false;
+    });
     // Smooth scroll to inner links
     
     $('.inner-link').each(function(){

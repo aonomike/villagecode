@@ -1,5 +1,5 @@
  
-            <footer class="footer-1">
+            <footer class="footer-1" id="footer">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3 col-sm-6">
@@ -35,10 +35,11 @@
                                 <hr>
                                 <div class="twitter-feed">
                                     <div>
-                                    <%@subscriber = Subscriber.new%>
+                                    <%@subscriber = Subscriber.new %>
                                     <%=form_for(@subscriber,:html => { :role => 'form',:class=>"text-left form"}) do |form| %>
                                     <input type="text" name="subscriber[email]" placeholder="Email" />
-                                    <%=link_to "Subscribe",subscribers_path, :method=>"POST",:class=>"btn btn-lg"%>
+                                    
+                                    <%= link_to 'submit', "#", :id=>"subscriber_btn" ,:class=>"btn btn-lg"%>
                                     <%end%>
                                     </div>
                                 </div>
@@ -70,7 +71,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-xs-18">
-                            <span class="sub">Dev and Design by <a href="#">TulaSoft Creative Studios</a></span></br>     
+                            <span class="sub">Dev and Design by <a href="http://www.tulasoftcreative.com">TulaSoft Creative Studios</a></span></br>     
                         </div>
                     </div>
                 </div>

@@ -39,147 +39,36 @@
                             <div class="col-md-10">
                                 <div class="tabbed-content button-tabs">
                                     <ul class="tabs fourths mb64 mb-xs-24">
-                                        <li class="active">
-                                        <div class="tab-title">
-                                            <span>Ages 7-10</span>
-                                        </div>
-                                        <div class="tab-content text-left">
-                                            <div>
-                                                <div class="overflow-hidden">
-                                                    <img alt="Pic" class="mb24 pull-left" src="assets/avatar1.png" />
-                                                    <div class="pull-left p32 p0-xs pt24">
-                                                        <h6 class="uppercase mb8 number">9:30am - 10:30am</h6>
-                                                        <h4>Introduction to Programming</br> 12/09/2015</h4>
-                                                    </div>
+                                        <%Event::EVENT_CATEGORIES.each do |category| %>
+                                            <%if category==Event::EVENT_CATEGORIES.first %>
+                                                <li class="active">
+                                            <%else%>
+                                                <li>
+                                            <%end%>
+                                                <div class="tab-title">
+                                                    <span><%=category%></span>
                                                 </div>
-                                                <p>
-                                                    <%=t('intro_to_prog')%>
-                                                </p>
-                                                <a class="btn btn-sm" href="#">Register</a>
-                                                <hr class="mt40 mb40 mt-xs-0 mb-xs-24">
-                                            </div>
-                                            <div>
-                                                <div class="overflow-hidden">
-                                                    <img alt="Pic" class="mb24 pull-left" src="assets/avatar2.png" />
-                                                    <div class="pull-left p32 p0-xs pt24">
-                                                        <h6 class="uppercase mb8 number">11:00am - 12:00pm</h6>
-                                                        <h4>Photo Editing Basics</br> 13/09/2015</h4>
-                                                    </div>
+                                                <div class="tab-content text-left">
+                                                    <% get_events_in_category(category).each do |event| %>
+                                                        <div>
+                                                            <div class="overflow-hidden">
+                                                                <img alt="Pic" class="mb24 pull-left" src="assets/avatar<%=event.id%>.png" />
+                                                                <div class="pull-left p32 p0-xs pt24">
+                                                                    <h6 class="uppercase mb8 number">9:30am - 10:30am</h6>
+                                                                    <h4><%=event.event_name%></br> 12/09/2015</h4>
+                                                                </div>
+                                                            </div>          
+                                                            <p>
+                                                                <%=event.event_desc %>
+                                                            </p>
+                                                            <a class="btn btn-sm" href="#">Register</a>
+                                                            <hr class="mt40 mb40 mt-xs-0 mb-xs-24">
+                                                        </div>
+                                                    <%end%>
                                                 </div>
-                                                <p>
-                                                    <%=t('photo_editing_basics')%>
-                                                </p>
-                                                <a class="btn btn-sm" href="#">Register</a>
-                                                <hr class="mt40 mb40 mt-xs-0 mb-xs-24">
-                                            </div>
-                                        </div>
-                                    </li>
-                                           <li>
-                                        <div class="tab-title">
-                                            <span>Ages 8-11</span>
-                                        </div>
-                                        <div class="tab-content text-left">
-                                            <div>
-                                                <div class="overflow-hidden">
-                                                    <img alt="Pic" class="mb24 pull-left" src="assets/avatar3.png" />
-                                                    <div class="pull-left p32 p0-xs pt24">
-                                                        <h6 class="uppercase mb8 number">1:30pm - 02:30pm</h6>
-                                                        <h4>Beginner Mobile Game Development</br> 16/09/2015</h4>
-                                                    </div>
-                                                </div>
-                                                <p>
-                                                    <%=t('beginner_game_dev')%>
-                                                </p>
-                                                <a class="btn btn-sm" href="#">Register</a>
-                                                <hr class="mt40 mb40 mt-xs-0 mb-xs-24">
-                                            </div>
-                                            <div>
-                                                <div class="overflow-hidden">
-                                                    <img alt="Pic" class="mb24 pull-left" src="assets/avatar4.png" />
-                                                    <div class="pull-left p32 p0-xs pt24">
-                                                        <h6 class="uppercase mb8 number">3:00pm - 4:00pm</h6>
-                                                        <h4>Introduction To HTML</br> 12/09/2015</h4>
-                                                    </div>
-                                                </div>
-                                                <p>
-                                                    <%=t('intro_to_html')%>
-                                                </p>
-                                                <a class="btn btn-sm" href="#">Register</a>
-                                                <hr class="mt40 mb40 mt-xs-0 mb-xs-24">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="tab-title">
-                                            <span>Ages 10-13</span>
-                                        </div>
-                                        <div class="tab-content text-left">
-                                            <div>
-                                                <div class="overflow-hidden">
-                                                    <img alt="Pic" class="mb24 pull-left" src="assets/avatar3.png" />
-                                                    <div class="pull-left p32 p0-xs pt24">
-                                                        <h6 class="uppercase mb8 number">1:30pm - 02:30pm</h6>
-                                                        <h4>Mobile Game Development</br> 11/09/2015</h4>
-                                                    </div>
-                                                </div>
-                                                <p>
-                                                    <%=t('mobile_game_dev')%>
-                                                </p>
-                                                <a class="btn btn-sm" href="#">Register</a>
-                                                <hr class="mt40 mb40 mt-xs-0 mb-xs-24">
-                                            </div>
-                                            <div>
-                                                <div class="overflow-hidden">
-                                                    <img alt="Pic" class="mb24 pull-left" src="assets/avatar4.png" />
-                                                    <div class="pull-left p32 p0-xs pt24">
-                                                        <h6 class="uppercase mb8 number">3:00pm - 4:00pm</h6>
-                                                        <h4>Building a complete website from Scratch</br> 10/09/2015</h4>
-                                                    </div>
-                                                </div>
-                                                <p>
-                                                    <%=t('web_from_scratch')%>
-                                                </p>
-                                                <a class="btn btn-sm" href="#">Register</a>
-                                                <hr class="mt40 mb40 mt-xs-0 mb-xs-24">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="tab-title">
-                                            <span>Ages 12-16</span>
-                                        </div>
-                                        <div class="tab-content text-left">
-                                            <div>
-                                                <div class="overflow-hidden">
-                                                    <img alt="Pic" class="mb24 pull-left" src="assets/avatar5.png" />
-                                                    <div class="pull-left p32 p0-xs pt24">
-                                                        <h6 class="uppercase mb8 number">5:30pm - 06:30pm</h6>
-                                                        <h4>Blasting Pesky Bugs</br> 8/09/2015</h4>
-                                                    </div>
-                                                </div>
-                                                <p>
-                                                    <%=t("pesky_bugs")%>
-                                                </p>
-                                                <a class="btn btn-sm" href="#">Register</a>
-                                                <hr class="mt40 mb40 mt-xs-0 mb-xs-24">
-                                            </div>
-                                            <div>
-                                                <div class="overflow-hidden">
-                                                    <img alt="Pic" class="mb24 pull-left" src="assets/avatar6.png" />
-                                                    <div class="pull-left p32 p0-xs pt24">
-                                                        <h6 class="uppercase mb8 number">7:00pm - 08:00pm</h6>
-                                                        <h4>Dive into Linux</br> 12/09/2015</h4>
-                                                    </div>
-                                                </div>
-                                                <p>
-                                                    <%=t('linux_dive')%>
-                                                </p>
-                                                <a class="btn btn-sm" href="#">Register</a>
-                                                <hr class="mt40 mb40 mt-xs-0 mb-xs-24">
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                                            </li>
+                                        <%end%>
+                                    </ul>
                             </div>
                             <!--end of button tabs-->
                         </div>
@@ -188,6 +77,9 @@
                     </div>
                     <!--end of row-->
                      <div class="row text-center text-left-xs">
+                        <%if current_user%>
+                        <a class="btn btn-lg" href="#">New Event</a>
+                        <%end%>
                         <a class="btn btn-lg" href="#">View All</a>
                     </div>
                 </div>

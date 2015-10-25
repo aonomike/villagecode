@@ -1,4 +1,9 @@
 class SubscribersController < ApplicationController
+
+    def index
+    
+    end
+
 	def create
 		@subscriber = Subscriber.new(subsciber_params)
 		if @subscriber.save

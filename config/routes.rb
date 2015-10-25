@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :volunteers
   resources :subscribers
+  resources :events
 
   match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
 

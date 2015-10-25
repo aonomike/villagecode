@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027105854) do
+ActiveRecord::Schema.define(version: 20151027125854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20151027105854) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "events", force: :cascade do |t|
+    t.text     "event_name"
+    t.text     "event_date"
+    t.text     "event_time"
+    t.text     "event_desc"
+    t.text     "event_category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+  end
+
+  add_index "events", ["event_name"], name: "index_events_on_event_name", unique: true, using: :btree
 
   create_table "post_tags", force: :cascade do |t|
     t.string   "tag"
@@ -47,6 +60,9 @@ ActiveRecord::Schema.define(version: 20151027105854) do
     t.datetime "picture_updated_at"
     t.string   "post_type"
   end
+
+  add_index "posts", ["post_title"], name: "index_posts_on_post_title", using: :btree
+  add_index "posts", ["slug"], name: "index_posts_on_slug", using: :btree
 
   create_table "subscribers", force: :cascade do |t|
     t.text     "email"
@@ -87,5 +103,8 @@ ActiveRecord::Schema.define(version: 20151027105854) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "volunteers", ["email"], name: "index_volunteers_on_email", unique: true, using: :btree
+  add_index "volunteers", ["slug"], name: "index_volunteers_on_slug", unique: true, using: :btree
 
 end

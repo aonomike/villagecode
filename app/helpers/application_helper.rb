@@ -1,4 +1,15 @@
 module ApplicationHelper
+
+	def get_random_text(number)
+		if(number==1)
+			return I18n.t 'one'
+		elsif(number==2)
+			return I18n.t 'two'
+		else 
+			return I18n.t 'three'
+		end
+	end
+	
 	def get_value_from_date(created_at,value)
 		
 		display=""
