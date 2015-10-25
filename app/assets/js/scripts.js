@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     $('#subscriber_btn').click(function() {
         $('#new_subscriber').submit();
-        $('#subscribe_success').removeClass('hidden');
+        $('#alert_message').removeClass('hidden');
         return false;
     });
     // Smooth scroll to inner links

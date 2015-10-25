@@ -1,0 +1,51 @@
+<div class="main-container">
+ <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <h4 class="uppercase mb16">Edit Event</h4>
+                            <p class="lead mb64">
+                                Hii si wordpress!! Use the available tags to style your content  <>(p, blockquote, ul, li)
+                            </p>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                        <%=form_for(@event,:html => { :role => 'form',:class=>"form"}) do |form| %>
+
+                            <div class="input-with-label text-left">
+                                <span>Attach Image:</span>
+                                <%= form.file_field :picture%>
+                            </div>
+
+                            <%= form.text_field  :event_name,:html=>"required",:placeholder=>"event name "%>
+
+                            <%= form.text_field  :event_date,:html=>"required",:placeholder=>"event date "%>
+
+                            <%= form.text_field  :event_time,:html=>"required",:placeholder=>"event time "%>
+
+                            <div class="select-option">
+                                <i class="ti-angle-down"></i>
+                                <select id="event_event_category" name="event[event_category]" required>
+                                        <option value="Default">Select Category</option>
+                                        <% Event::EVENT_CATEGORIES.each do |category|%>
+                                            <% if !@event.event_category.nil? && @event.event_category.strip==category.strip%>
+                                                <option selected="true" value="<%=category%>"><%=category%></option>
+                                            <%else%>
+                                                <option value="<%=category%>"><%=category%></option>
+                                            <% end %>
+                                        <%end%>
+                                </select>
+                            </div>
+
+                            <%= form.text_area  :event_desc,:placeholder=>"Content...",:rows=>10%>
+                            <input type="submit" value="Submit" />
+                        <%end%>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+</div>

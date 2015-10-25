@@ -54,13 +54,16 @@
                                                             <div class="overflow-hidden">
                                                                 <img alt="Pic" class="mb24 pull-left" src="assets/avatar<%=event.id%>.png" />
                                                                 <div class="pull-left p32 p0-xs pt24">
-                                                                    <h6 class="uppercase mb8 number">9:30am - 10:30am</h6>
+                                                                    <h6 class="uppercase mb8 number"><%=event.event_time%></h6>
                                                                     <h4><%=event.event_name%></br> 12/09/2015</h4>
                                                                 </div>
                                                             </div>          
                                                             <p>
                                                                 <%=event.event_desc %>
                                                             </p>
+                                                            <%if current_user%>
+                                                            <%=link_to "Edit Event" ,edit_event_path(event),:class=>"btn btn-sm"%>
+                                                            <%end%>
                                                             <a class="btn btn-sm" href="#">Register</a>
                                                             <hr class="mt40 mb40 mt-xs-0 mb-xs-24">
                                                         </div>

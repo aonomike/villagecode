@@ -5,7 +5,7 @@ class VisitorsController < ApplicationController
 	end
 
 	def index
-		
+
 	end
 
 	def codeclub
