@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     resources :comments,:post_tags
   end
 
+  resources :volunteers
+  resources :subscribers
+
   match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
 
 
@@ -30,7 +33,7 @@ Rails.application.routes.draw do
   get '/sponsor'=>'visitors#sponsor',:as =>:sponsor
   get '/tbc'=>'visitors#tbc',:as =>:tbc
   get '/make'=>'visitors#make',:as =>:make
-  get '/volunteer'=>'visitors#volunteer',:as =>:volunteer
+  get '/volunteer'=>'visitors#volunteer'
   
   
 

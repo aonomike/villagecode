@@ -1,8 +1,6 @@
 <% content_for :title do %>
   <%=@title%>
 <% end %>
-
-
         <div class="main-container">
         <section class="page-title page-title-4 image-bg overlay parallax">
                 <div class="background-image-holder">
@@ -25,7 +23,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h3 class="uppercase color-primary mb40 mb-xs-24">We Make</h3>
-                            <h4>We are on a Mission to become the leading resource for youth in Western Kenya to become passionate creators of technology and not merely consumers, through hands on social and collaborative learning of technical skills</h4>
+                            <h4><%=t('we_make')%></h4>
                         </div>
                     
                     </div>
@@ -43,7 +41,7 @@
                     <div class="text-right text-left-xs">
                         <h2 class="uppercase">Cool<br />Projects</h2>
                         <p>
-                            Showcase your projects in a positively charged environment,<br /> to achieve our own goals. Groups are made up of 10 - 15 people<br /> and cater to all ability levels.
+                            <%=t('cool_projects').html_safe%>
                         </p>
                         <h6 class="uppercase mb8">Come to any session</h6>
                         <h6 class="uppercase mb8">Multi-session discounts</h6>
@@ -62,7 +60,7 @@
                     <div>
                         <h2 class="uppercase">Mecha <br />Mind</h2>
                         <p>
-                            Perfect for those who need to get their feet wet<br />Make cool projects with the Raspberry Pi<br /> that we'll monitor together.
+                            <%=t('mecha_mind').html_safe%>
                         </p>
                         <h6 class="uppercase mb8">Flexible booking times</h6>
                         <h6 class="uppercase mb8">Personal Advice</h6>

@@ -22,6 +22,7 @@ class VisitorsController < ApplicationController
 
 	def volunteer
 		@title = "Volunteer"
+		@volunteer = Volunteer.new
 	end
 
 	def sponsor

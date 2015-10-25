@@ -7,24 +7,23 @@
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="widget">
-                                <h6 class="title">Contact Us</h6>
+                                <h6 class="title"><%= t('contact_us') %></h6>
                                 <hr>
                                 <ul class=" recent-posts">
                                     <li>
-                                        <a href="#">@villagecode</a>
+                                        <a href="#"><%= t('twitter')%></a>
                                         
                                     </li>
                                     <li>
-                                        <a href="#">fb.com/villagecode</a>
+                                        <a href="#"><%= t('facebook')%></a>
                                        
                                     </li>
                                     <li>
-                                        <a href="#">info@villagecode.com</a>
+                                        <a href="#"><%= t('email')%></a>
                                         
                                     </li>
                                     <li style="margin-top:20px;">
-                                        40100-9047, Innovation Lane Kisumu 
-                                        
+                                        <%= t('address')%>
                                     </li>
                                 </ul>
                             </div>
@@ -36,8 +35,11 @@
                                 <hr>
                                 <div class="twitter-feed">
                                     <div>
-                                    <input type="text" placeholder="Email" />
-                                    <a class="btn btn-lg" href="#">Subscribe</a>
+                                    <%@subscriber = Subscriber.new%>
+                                    <%=form_for(@subscriber,:html => { :role => 'form',:class=>"text-left form"}) do |form| %>
+                                    <input type="text" name="subscriber[email]" placeholder="Email" />
+                                    <%=link_to "Subscribe",subscribers_path, :method=>"POST",:class=>"btn btn-lg"%>
+                                    <%end%>
                                     </div>
                                 </div>
                             </div>

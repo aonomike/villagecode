@@ -10,5 +10,8 @@ class CreatePosts < ActiveRecord::Migration
 		  t.references :user
   		  t.timestamps
 	    end
+
+	    add_index :posts, :post_title
+	    add_index :posts, :slug
 	end
 end
