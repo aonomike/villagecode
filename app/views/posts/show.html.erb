@@ -30,10 +30,16 @@
                                 <%=get_post_picture(@post)%>
                                 
                                 <div class="post-title">
-                                    <span class="label"><%=get_value_from_date(@post.created_at,"day short_month")%></span>
-                                    <h4 class="inline-block"><%=@post.by_line%></h4>
+                                   <span class="label"><%=get_value_from_date(@post.created_at,"day short_month")%></span>
+                                   <h4 class="inline-block"><%=@post.by_line%></h4>
                                 </div>
                                 <ul class="post-meta">
+                                    <%if current_user.id==@post.user_id%>
+                                    <li>
+                                        <i class="ti-pencil"></i>
+                                        <%=link_to "Edit Post",edit_post_path(@post)%>
+                                    </li>
+                                    <%end%>
                                     <li>
                                         <i class="ti-user"></i>
                                         <span>Written by

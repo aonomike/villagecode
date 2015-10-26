@@ -31,7 +31,7 @@ class VisitorsController < ApplicationController
 
 	def blog
 		@title = "Blog"
-		@posts = Post.all
+		@posts = Post.where("post_status='Published'")
 	end
 
 	def contact

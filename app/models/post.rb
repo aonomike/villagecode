@@ -18,6 +18,15 @@ class Post < ActiveRecord::Base
      :message => "Different error message",
      :if => :is_type_of_image?
 
+  def tags_list
+      self.post_tags.map{|t| t.tag}.join(",")
+  end
+
+  def tag_list=(new_value)
+    tag_names = new_value.split(/,\s+/)
+    self.post_tags = tag_names.map { |tag| PostTag.where('tag = ?', tag).first or PostTag.create(:tag => tag) }
+  end
+
 	protected
 	  def is_type_of_image?
 	    picture.content_type =~ %r(image)

@@ -9,6 +9,8 @@ class PostsController < ApplicationController
 
 	def show
 		@post =Post.friendly.find(params[:id])
+		count = @post.read_count.to_i+1
+		@post.update_attributes(:read_count=>count.to_s)  
     end
 	
 	def new
@@ -46,7 +48,15 @@ class PostsController < ApplicationController
 	end
 	
 	def update
-		
+		@post= Post.friendly.find(params[:id])
+		if @post.update_attributes(post_params)  
+		  
+
+		  flash[:notice] = "Successfully updated the post."  
+    	  redirect_to @post
+    	else
+    		redirect_to :action => 'edit'
+    	end	
 	end
 
 	def destroy
