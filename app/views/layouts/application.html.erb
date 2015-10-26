@@ -14,10 +14,16 @@
     <body>
         <%= render "layouts/navigation" %>
         <%if flash[:notice]!=nil%>
-          <div id="alert_message" class="alert alert-success alert-dismissible" >
+          <div id="alert_message" class="alert alert-dismissible" >
             <span class="close" data-dismiss="alert">&times;</span>
             <span><%=flash[:notice].html_safe%></span>
             <%flash[:notice] = nil %>
+          </div>
+        <%elsif flash[:alert]!=nil%>
+          <div id="alert_message" class="alert alert-dismissible" >
+            <span class="close" data-dismiss="alert">&times;</span>
+            <span><%=flash[:alert].html_safe%></span>
+            <%flash[:alert] = nil %>
           </div>
         <%end%>
 

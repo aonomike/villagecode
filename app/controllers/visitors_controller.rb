@@ -5,7 +5,7 @@ class VisitorsController < ApplicationController
 	end
 
 	def index
-
+  		
 	end
 
 	def codeclub
@@ -32,7 +32,6 @@ class VisitorsController < ApplicationController
 	def blog
 		@title = "Blog"
 		@posts = Post.all
-		
 	end
 
 	def contact

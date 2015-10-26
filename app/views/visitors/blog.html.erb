@@ -12,12 +12,13 @@
                             <div class="col-md-6">
                                 <h2 class="uppercase mb8">Latest Posts</h2>
                             </div>
-                            <%if current_user %>
+                            <%if can? :create, Post %>
                                 <div class="col-md-6 text-right">
                                     <ol class="breadcrumb breadcrumb-2">
                                         <li>
                                             <a href="#">Blog</a>
                                         </li>
+
                                         <li class="active"><%=link_to "New Post",new_post_path %></li>
                                     </ol>
                                 </div>

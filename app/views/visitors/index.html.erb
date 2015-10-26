@@ -61,7 +61,7 @@
                                                             <p>
                                                                 <%=event.event_desc %>
                                                             </p>
-                                                            <%if current_user%>
+                                                            <% if can? :update, Event %>
                                                             <%=link_to "Edit Event" ,edit_event_path(event),:class=>"btn btn-sm"%>
                                                             <%end%>
                                                             <a class="btn btn-sm" href="#">Register</a>
@@ -80,7 +80,7 @@
                     </div>
                     <!--end of row-->
                      <div class="row text-center text-left-xs">
-                        <%if current_user%>
+                        <% if can? :create, Event %>
                         <a class="btn btn-lg" href="#">New Event</a>
                         <%end%>
                         <a class="btn btn-lg" href="#">View All</a>

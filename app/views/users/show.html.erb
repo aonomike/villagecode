@@ -9,7 +9,39 @@
                                         <span class="number price"><%=@user.email%></span>
                                     </div>
                                 </div>
+
                                 <hr class="mb48 mb-xs-24">
+                                <%if can? :manage, User%>
+                                <div class="overflow-hidden">
+                                    <h6 class="uppercase">
+                                    Role?
+                                    </h6>
+                                    <div class="col-sm-4">
+                                        <p>Super Admin</p>
+                                        <div class="radio-option">
+                                            <div class="inner"></div>
+                                            <input type="radio" name="volunteer[engagement]" value="specific_event" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <p>Blog Admin</p>
+                                        <div class="radio-option">
+                                            <div class="inner"></div>
+                                            <input type="radio" name="volunteer[engagement]" value="part_time" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <p>Blog Team</p>
+                                        <div class="radio-option">
+                                            <div class="inner"></div>
+                                            <input type="radio" name="volunteer[engagement]" value="full_time" />
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+
+                                <hr class="mb48 mb-xs-24">
+                                <%end%>
                                 <form>
                                     <input type="submit" value="Edit Account" />
                                 </form>

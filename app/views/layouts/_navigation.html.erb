@@ -9,7 +9,11 @@
                         </div>
                         <div class="module left">
                             <i class="ti-id-badge">&nbsp;</i>
-                            <span class="sub">Editor</span>
+                            <%if current_user.roles.size>1%>
+                                
+                            <%elsif current_user.roles.size==1 %>
+                                <span class="sub"><%=current_user.roles.first.name.humanize%></span>
+                            <%end%>
                         </div>
                         <div class="module right">
                           <%= link_to "<i class='ti-unlock'>&nbsp;</i>".html_safe, destroy_user_session_path, :method=>'delete' %>
@@ -89,6 +93,13 @@
                                         Contact
                                     </a>
                                 </li>
+                                <%if can? :manage, User%>
+                                <li>
+                                    <a href="/users">
+                                        Users
+                                    </a>
+                                </li>
+                                <% end %>
                             </ul>
                         </div>
                         <!--end of menu module-->
