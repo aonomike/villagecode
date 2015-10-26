@@ -16,6 +16,7 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.new(volunteer_params)
     #@volunteer.area = params[:area].to_s
     if @volunteer.save
+      flash[:notice]="Congrats! You are now a Village hero! "
       redirect_to "/volunteer"
     end
   end
