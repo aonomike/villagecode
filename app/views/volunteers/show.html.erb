@@ -1,0 +1,31 @@
+<div class="main-container">
+            <section>
+                <div class="container">
+                    
+                            <div class="col-md-5 col-md-offset-1 col-sm-6">
+                                <div class="description">
+                                    <h4 class="uppercase"><%=@volunteer.name%></h4>
+                                    <div class="mb32 mb-xs-24">
+                                        <span class="number price"><%=@volunteer.email%></span>
+                                    </div>
+                                    <div class="mb32 mb-xs-24">
+                                        <span class="number price"><%=@volunteer.engagement%></span>
+                                    </div>
+                                    <div class="mb32 mb-xs-24">
+                                        <span class="number price"><%=@volunteer.referrer%></span>
+                                    </div>
+                                    <div class="mb32 mb-xs-24">
+                                        <span class="number price"><%=@volunteer.additional_comments%></span>
+                                    </div>
+
+                                </div>
+
+                                <hr class="mb48 mb-xs-24">
+                                <%if can? :manage, Volunteer%>
+                                
+                                <%end%>
+                            </div>
+                </div>
+                <!--end of container-->
+            </section>        
+</div>
