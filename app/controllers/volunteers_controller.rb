@@ -8,9 +8,9 @@ class VolunteersController < ApplicationController
 
   def show
     @volunteer = Volunteer.friendly.find(params[:id])
-    unless @volunteer == current_user
-      redirect_to :back, :alert => "Access denied."
-    end
+    #unless @volunteer == current_user
+    #  redirect_to :back, :alert => "Access denied."
+    #end
   end
 
   def create
