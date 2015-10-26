@@ -45,11 +45,10 @@ class Ability
         comment.assetable.try(:owner) == user
       end
     else
-      can :read, [Post,Event,Comment,User]
+      can :read, [Post,Event,Comment]
       can :manage, Comment do |comment|
         comment.assetable.try(:owner) == user
       end
-
     end
   end
 end

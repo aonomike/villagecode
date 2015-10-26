@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   def edit
     @event = Event.friendly.find(params[:id])
   end
-
+  
   def update
   	@event= Event.friendly.find(params[:id])
     if @event.update_attributes(event_params)  
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
       redirect_to "/"
     end
   end
-
+  
   def show
     redirect_to "/"
   end
