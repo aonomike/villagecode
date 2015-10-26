@@ -1,5 +1,6 @@
 class VolunteersController < ApplicationController
-  before_filter :authenticate_user!,:except =>["create"]
+#  before_filter :authenticate_user!,:except =>["create"]
+  load_and_authorize_resource :find_by => :slug
 
   def index
     @volunteers = Volunteer.all
