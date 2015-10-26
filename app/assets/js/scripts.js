@@ -10,6 +10,20 @@ var mr_firstSectionHeight,
 $(document).ready(function() { 
     "use strict";
 
+    $('#edit_role').click(function() {
+        var thisForm = $('#role_form');
+        
+        jQuery.ajax({
+                    type: "POST",
+                    url: "/change_role",
+                    data: thisForm.serialize(),
+                    success: function(response) {
+                        
+                    }
+                });
+        return false;
+    });
+
     $('#subscriber_btn').click(function() {
         $('#new_subscriber').submit();
         $('#alert_message').removeClass('hidden');

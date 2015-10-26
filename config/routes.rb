@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get '/tbc'=>'visitors#tbc',:as =>:tbc
   get '/make'=>'visitors#make',:as =>:make
   get '/volunteer'=>'visitors#volunteer'
+  post '/change_role'=>'users#change_role'
   
   
 

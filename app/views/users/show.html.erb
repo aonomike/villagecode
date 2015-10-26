@@ -12,7 +12,12 @@
 
                                 <hr class="mb48 mb-xs-24">
                                 <%if can? :manage, User%>
-                                <div class="overflow-hidden">
+                                
+                                <%end%>
+                                <%if current_user.role?("super_admin")%>
+                                <form id="role_form">
+                                    <input name="user[id]" type="hidden" value="<%=@user.id%>" />
+                                    <div class="overflow-hidden">
                                     <h6 class="uppercase">
                                     Role?
                                     </h6>
@@ -20,31 +25,30 @@
                                         <p>Super Admin</p>
                                         <div class="radio-option">
                                             <div class="inner"></div>
-                                            <input type="radio" name="volunteer[engagement]" value="specific_event" />
+                                            <input type="radio" name="user[role]" value="super_admin" />
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <p>Blog Admin</p>
                                         <div class="radio-option">
                                             <div class="inner"></div>
-                                            <input type="radio" name="volunteer[engagement]" value="part_time" />
+                                            <input type="radio" name="user[role]" value="blog_admin" />
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <p>Blog Team</p>
                                         <div class="radio-option">
                                             <div class="inner"></div>
-                                            <input type="radio" name="volunteer[engagement]" value="full_time" />
+                                            <input type="radio" name="user[role]" value="blog_team" />
                                         </div>
                                     </div>
                                     <hr>
                                 </div>
 
                                 <hr class="mb48 mb-xs-24">
-                                <%end%>
-                                <form>
-                                    <input type="submit" value="Edit Account" />
+                                    <input type="button" id="edit_role" value="Edit Role" class="btn"/>
                                 </form>
+                                <%end%>
                             </div>
                 </div>
                 <!--end of container-->
