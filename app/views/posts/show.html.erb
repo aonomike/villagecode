@@ -34,11 +34,13 @@
                                    <h4 class="inline-block"><%=@post.by_line%></h4>
                                 </div>
                                 <ul class="post-meta">
+                                    <% if can? :update, Post %>
                                     <%if current_user.id==@post.user_id%>
                                     <li>
                                         <i class="ti-pencil"></i>
                                         <%=link_to "Edit Post",edit_post_path(@post)%>
                                     </li>
+                                    <%end%>
                                     <%end%>
                                     <li>
                                         <i class="ti-user"></i>
