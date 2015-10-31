@@ -1,3 +1,22 @@
-<td><%= link_to user.name, user %></td>
-<td><%= link_to user.email, user %></td>
-<td><%= user.roles.first.name %></td>
+                                        <th scope="row"> 
+                                            <a href="#" class="remove-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete the User"> 
+                                                <i class="ti-close"></i> 
+                                            </a> 
+                                        </th> 
+                                        <td> 
+                                            <a href="#"> 
+                                                <img alt="Product" class="product-thumb" src="assets/avatar1.png" /> 
+                                            </a> 
+                                        </td> 
+                                        <td> 
+                                            <span><%=link_to user.name ,user %></span> 
+                                        </td> 
+                                        <td> 
+                                            <span><%=link_to user.email ,user%></span> 
+                                        </td> 
+                                        <td> 
+                                            <span><%=user.roles.first.name.humanize%></span> 
+                                        </td> 
+                                        <td align="center"> 
+                                            <span><%=user.sign_in_count%></span> 
+                                        </td> 

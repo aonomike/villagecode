@@ -57,9 +57,7 @@
                                     <span class="inline-block mb16"><%=get_value_from_date(post.created_at,"default")%></span>
                                 </a>
                                 <hr>
-                                <p>
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.
-                                </p>
+                                <%=post.post_content.html_safe%>
                                 <%=link_to "Read More",post ,:class=>"btn btn-sm"%>
                                 <ul class="tags pull-right">
                                     <li>

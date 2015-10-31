@@ -4,6 +4,9 @@
                     
                             <div class="col-md-5 col-md-offset-1 col-sm-6">
                                 <div class="description">
+                                    <% if can? :update, User %>
+                                    <i class='ti-pencil edit_content'>&nbsp;</i>
+                                    <%end%>
                                     <h4 class="uppercase"><%=@user.name%></h4>
                                     <div class="mb32 mb-xs-24">
                                         <span class="number price"><%=@user.email%></span>
@@ -11,9 +14,10 @@
                                 </div>
 
                                 <hr class="mb48 mb-xs-24">
-                                <%if can? :manage, User%>
-                                
-                                <%end%>
+                                    <%if current_user.id== @user.id%>
+                                        <%= link_to 'edit account', "#", :id=>"edit_user_btn" ,:class=>"btn hidden"%>
+                                    <%end%>
+
                                 <%if current_user.role?("super_admin")%>
                                 <form id="role_form">
                                     <input name="user[id]" type="hidden" value="<%=@user.id%>" />
@@ -23,21 +27,33 @@
                                     </h6>
                                     <div class="col-sm-4">
                                         <p>Super Admin</p>
+                                        <%if @user.role?("super_admin")%>
+                                        <div class="radio-option checked">
+                                        <%else%>
                                         <div class="radio-option">
+                                        <%end%>
                                             <div class="inner"></div>
                                             <input type="radio" name="user[role]" value="super_admin" />
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <p>Blog Admin</p>
+                                        <%if @user.role?("blog_admin")%>
+                                        <div class="radio-option checked">
+                                        <%else%>
                                         <div class="radio-option">
+                                        <%end%>
                                             <div class="inner"></div>
                                             <input type="radio" name="user[role]" value="blog_admin" />
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
-                                        <p>Blog Team</p>
+                                        <p>Guest</p>
+                                        <%if @user.role?("blog_team") || @user.role?("guest")%>
+                                        <div class="radio-option checked">
+                                        <%else%>
                                         <div class="radio-option">
+                                        <%end%>
                                             <div class="inner"></div>
                                             <input type="radio" name="user[role]" value="blog_team" />
                                         </div>

@@ -1,0 +1,26 @@
+    <h5 class="uppercase">Other Stats</h5> 
+                                <table class="table"> 
+                                    <tbody> 
+                                        <tr> 
+                                            <th scope="row">Volunteers</th> 
+                                            <td><%=link_to Volunteer.all.size,volunteers_path%></td> 
+                                        </tr> 
+                                        <tr> 
+                                            <th scope="row">Sponsors</th> 
+                                            <td><%=link_to Sponsor.all.size,sponsors_path%></td> 
+                                        </tr> 
+                                        <tr> 
+                                            <th scope="row">Mailing List Subscribers</th> 
+                                            <td><%=Subscriber.all.size%></td> 
+                                        </tr> 
+                                        <tr> 
+                                            <th scope="row">Users Total</th> 
+                                            <td> 
+                                                <strong><%=get_people_count%></strong> 
+                                            </td> 
+                                        </tr> 
+                                    </tbody> 
+                                </table> 
+                                <form> 
+                                    <input type="submit" value="Print detailed report to PDF" /> 
+                                </form> 

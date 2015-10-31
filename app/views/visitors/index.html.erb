@@ -64,7 +64,7 @@
                                                             <% if can? :update, Event %>
                                                             <%=link_to "Edit Event" ,edit_event_path(event),:class=>"btn btn-sm"%>
                                                             <%end%>
-                                                            <a class="btn btn-sm" href="#">Register</a>
+                                                            <%=link_to "Register",new_event_event_attendant_path(event),:class=>"btn btn-sm"%>
                                                             <hr class="mt40 mb40 mt-xs-0 mb-xs-24">
                                                         </div>
                                                     <%end%>
@@ -227,7 +227,7 @@
                         <div class="col-sm-8 text-left">
                             <h2><%=t('belief')%></h2>
                             <h4 class="pb48 pb-xs-24">Join us in this brave new world</h4>
-                            <a class="btn btn-lg" href="#">Get Involved</a>
+                            <a class="btn btn-lg" href="/sponsor">Get Involved</a>
                         </div>
                     </div>
                     <!--end of row-->

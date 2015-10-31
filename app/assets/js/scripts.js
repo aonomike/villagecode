@@ -10,6 +10,47 @@ var mr_firstSectionHeight,
 $(document).ready(function() { 
     "use strict";
 
+    $('#role_type').change(function(){
+
+
+        $.ajax({
+            type: "POST",
+            url: "/filter/",
+            data: {'role':$(this).val()},
+            success: function(data,status,xhr){
+                        $("#filter_results_div").empty();
+                        $("#filter_results_div").html(data);
+                        $(".results-count").empty();
+                        if(data!="empty"){
+                            var count =$("#dataTable").data('user-count');
+                            $(".results-count").html("Displaying "+count+" of " +count+" results")
+                        }else{
+                            $(".results-count").html("No Results");
+                        }
+                        
+
+                        return false
+            },
+            error: function(xhr,status,error){
+                          console.log(error);
+                          alert(error);
+                          return false
+            }  
+          });   
+            
+        return false;
+    });
+
+
+    $('.edit_content').click(function(){
+        $('.page-item-btn').removeClass('hidden');
+        
+    });
+
+    $('.page-item-btn').click(function(){
+        $('.page-item-btn').addClass('hidden');
+    });
+
     $('#edit_role').click(function() {
         var thisForm = $('#role_form');
         

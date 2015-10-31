@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   load_and_authorize_resource :find_by => :slug
   
   def index
-  	
+  	redirect_to "/"
   end
 
   def create
@@ -29,6 +29,7 @@ class EventsController < ApplicationController
     redirect_to "/"
   end
 
+  
   private 
     # Using a private method to encapsulate the permissible parameters
     # is just a good pattern since you'll be able to reuse the same

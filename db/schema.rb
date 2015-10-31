@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027155854) do
+ActiveRecord::Schema.define(version: 20151031092855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20151027155854) do
     t.string   "body"
     t.integer  "post_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "comment"
+    t.integer  "a_reply_to"
+  end
+
+  create_table "event_attendants", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,6 +49,41 @@ ActiveRecord::Schema.define(version: 20151027155854) do
   end
 
   add_index "events", ["event_name"], name: "index_events_on_event_name", unique: true, using: :btree
+
+  create_table "initiative_bookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "time"
+    t.integer  "initiative_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "initiatives", force: :cascade do |t|
+    t.string   "initiative_name"
+    t.string   "initiative_desc"
+    t.string   "initiative_category"
+    t.string   "initiative_features"
+    t.string   "slug"
+    t.string   "sans_html_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "page_items", force: :cascade do |t|
+    t.string   "title"
+    t.text     "item_content"
+    t.string   "parent_tag"
+    t.integer  "page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "menu_order"
+  end
 
   create_table "post_tags", force: :cascade do |t|
     t.string   "tag"
@@ -78,6 +122,20 @@ ActiveRecord::Schema.define(version: 20151027155854) do
     t.integer "role_id"
     t.integer "user_id"
   end
+
+  create_table "sponsors", force: :cascade do |t|
+    t.string   "name"
+    t.text     "email"
+    t.string   "slug"
+    t.string   "referrer"
+    t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sponsors", ["email"], name: "index_sponsors_on_email", unique: true, using: :btree
+  add_index "sponsors", ["name"], name: "index_sponsors_on_name", unique: true, using: :btree
+  add_index "sponsors", ["slug"], name: "index_sponsors_on_slug", unique: true, using: :btree
 
   create_table "subscribers", force: :cascade do |t|
     t.text     "email"

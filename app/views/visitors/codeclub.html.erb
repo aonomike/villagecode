@@ -32,25 +32,27 @@
                 </div>
                 <!--end of container-->
             </section>
-	    <section class="image-square right bg-secondary">
+	        <section class="image-square right bg-secondary">
+                <%initiative = @initiatives.first%>
                 <div class="col-md-6 image">
                     <div class="background-image-holder">
                         <img alt="image" class="background-image" src="assets/back.jpg" />
                     </div>
                 </div>
                 <div class="col-md-6 content">
-                    <div class="text-right text-left-xs">
-						<h2 class="uppercase">Group<br />Training</h2>
+                    <div >
+						<h2 class="uppercase"><%=initiative.initiative_name.html_safe%></h2>
 						<p> <%=t("group_training").html_safe%>
 						</p>
-						<h6 class="uppercase mb8">Come to any session</h6>
-						<h6 class="uppercase mb8">Multi-session discounts</h6>
+						<h6 class="uppercase mb8">Come to any initiative</h6>
+						<h6 class="uppercase mb8">Multi-initiative discounts</h6>
 						<h6 class="uppercase mb8">Train with friends</h6>
-						<a class="btn btn-lg mt32 mb0" href="#">Book A Session Now</a>
+                        <%=link_to "Book A Session Now",new_initiative_initiative_booking_path(initiative),:class=>"btn btn-lg mt32 mb0"%>
 					</div>
                 </div>
             </section>
             <section class="image-square left">
+                <%initiative = @initiatives.last%>
                 <div class="col-md-6 image">
                     <div class="background-image-holder">
                         <img alt="image" class="background-image" src="assets/mtoi.jpg" />
@@ -58,23 +60,23 @@
                 </div>
                 <div class="col-md-6 col-md-offset-1 content overflow-hidden">
                     <div>
-						<h2 class="uppercase">Individual<br />Training</h2>
+						<h2 class="uppercase"><%=initiative.initiative_name.html_safe%></h2>
 						<p>
 							<%=t('individual_training').html_safe%>
 						</p>
 						<h6 class="uppercase mb8">Flexible booking times</h6>
 						<h6 class="uppercase mb8">Personal Advice</h6>
-						<h6 class="uppercase mb8">Multi-session discounts</h6>
+						<h6 class="uppercase mb8">Multi-initiative discounts</h6>
 						<h6 class="uppercase mb8">Weekly progress tracking</h6>
-						<a class="btn btn-lg mt32 mb0" href="#">Book A Session Now</a>
+						<%=link_to "Book A Session Now",new_initiative_initiative_booking_path(initiative),:class=>"btn btn-lg mt32 mb0"%>
 					</div>
                 </div>
             </section>
-	    <section class="bg-dark">
+	        <section class="bg-dark">
                 <div class="container">
                     <div class="row">
                    	    <div class="col-md-8 col-md-offset-2 text-center">
-                            <a href="#">
+                            <a href="http://twitter.com">
                                 <h2 class="uppercase color-primary mb16">#codeclub</h2>
                             </a>
                             <h6 class="uppercase">Follow Us For Updates</h6>

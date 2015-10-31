@@ -1,0 +1,47 @@
+ <div class="main-container">
+        <section class="page-title page-title-4 image-bg overlay parallax">
+                <div class="background-image-holder">
+                    <img alt="Background Image" class="background-image" src="assets/kids.jpg" />
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2 class="uppercase mb8">Book a Session</h2>
+                            <p class="lead mb0 uppercase"><%=clean_up(@initiative.initiative_category)%></p>
+                        </div>
+                      
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+           
+            <section class="bg-secondary">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4 class="uppercase color-primary"><%=clean_up @initiative.initiative_name%></h4>
+                            <p>
+                                <%=@initiative.initiative_desc%>
+                            </p>
+                        </div>
+                        <div class="col-md-7 col-md-offset-1">
+                            <%=form_for(@initiative_booking,:html => { :role => 'form',:class=>"text-left form"}) do |form| %>
+                                <div class="overflow-hidden">
+                                    <h6 class="uppercase">
+                                    Session details
+                                    </h6>
+                                    <input type="text" name="initiative_booking[name]" class="col-md-6 validate-required" placeholder="Date*" />
+                                    <input type="text" name="initiative_booking[email]" class="col-md-6 validate-required validate-email" placeholder="Time*" />
+                                    <textarea name="volunteer[additional_comments]" placeholder="Additional comments" rows="2"></textarea>
+                                    <hr>
+                                </div>
+                                <input type="submit" value="Submit" />
+                            <%end%>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+           

@@ -1,7 +1,10 @@
 class SubscribersController < ApplicationController
 
+    load_and_authorize_resource :except => :create
+
+
     def index
-    
+        @subscribers = Subscriber.all
     end
 
 	def create

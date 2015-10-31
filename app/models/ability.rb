@@ -44,11 +44,13 @@ class Ability
       can :manage, Comment do |comment|
         comment.assetable.try(:owner) == user
       end
+    elsif user.role? :guest
+      can :read, [Post,Event,Comment]
+
+      can :read,User ,:id=>user.id
+      can :update,User ,:id=>user.id
     else
       can :read, [Post,Event,Comment]
-      can :manage, Comment do |comment|
-        comment.assetable.try(:owner) == user
-      end
     end
   end
 end

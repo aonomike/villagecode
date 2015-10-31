@@ -2,6 +2,8 @@ class Event < ActiveRecord::Base
 		extend FriendlyId
 	friendly_id :event_name, use: :slugged
 
+	has_many :event_attendants
+
 	EVENT_CATEGORIES = ["Ages 7-10","Ages 8-11","Ages 10-13","Ages 12-16"]
 
 	has_attached_file :picture,

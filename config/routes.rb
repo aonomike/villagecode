@@ -11,9 +11,19 @@ Rails.application.routes.draw do
     resources :comments,:post_tags
   end
 
+  resources :sponsors
   resources :volunteers
   resources :subscribers
-  resources :events
+  resources :events do
+    resources :event_attendants
+  end
+
+  resources :pages
+  resources :initiatives do
+    resources :initiative_bookings
+  end
+
+  resources :initiative_bookings
 
   match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
 
@@ -31,14 +41,13 @@ Rails.application.routes.draw do
   get '/blog'=>'visitors#blog',:as =>:blog
   get '/codeclub'=>'visitors#codeclub',:as =>:codeclub
   get '/contact'=>'visitors#contact',:as =>:contact
-  get '/sponsor'=>'visitors#sponsor',:as =>:sponsor
+  get '/sponsor'=>'visitors#sponsor'
   get '/tbc'=>'visitors#tbc',:as =>:tbc
   get '/make'=>'visitors#make',:as =>:make
   get '/volunteer'=>'visitors#volunteer'
   post '/change_role'=>'users#change_role'
+  post '/filter'=>'users#filter'
   
-  
-
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 

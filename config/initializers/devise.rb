@@ -263,5 +263,5 @@ Rails.application.config.to_prepare do
   Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "application" : "sign_up" }
   Devise::ConfirmationsController.layout "devise"
   Devise::UnlocksController.layout "devise"
-  Devise::PasswordsController.layout "devise"
+  Devise::PasswordsController.layout "sign_in"
 end

@@ -1,0 +1,24 @@
+<div class="main-container">
+            <section>
+                <div class="container">
+                    
+                            <div class="col-md-10 col-md-offset-1 col-sm-6">
+                                <div class="description">
+                                    <h4 class="uppercase">Subscribers</h4>
+                                        <table class="table">
+                                          <tbody>
+                                            <% @subscribers.each do |subscriber| %>
+                                              <tr>
+                                                <div class="mb32 mb-xs-24">
+                                                    <span class="number price"><%= render subscriber %></span>
+                                                </div>
+                                              </tr>
+                                            <% end %>
+                                          </tbody>
+                                        </table>
+                                </div>
+                            </div>
+                </div>
+                <!--end of container-->
+            </section>        
+</div>

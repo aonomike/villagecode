@@ -93,7 +93,7 @@
                                         Contact
                                     </a>
                                 </li>
-                                <%if can? :manage, User%>
+                                <%if current_user && current_user.role?("super_admin")%>
                                 <li>
                                     <a href="/users">
                                         Users

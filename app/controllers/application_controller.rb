@@ -7,6 +7,15 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
 	redirect_to root_url, :alert => exception.message
   end
+
+
+  def require_user
+    if current_user
+        
+    else
+        redirect_to "/users/sign_up"
+    end
+  end
  
   protected
 

@@ -42,12 +42,12 @@
                     </div>
                 </div>
                 <div class="col-md-6 content">
-                    <form class="form-email" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
+                    <%=form_for(@sponsor,:html => { :role => 'form',:class=>"text-left form"}) do |form| %>
                         <h6 class="uppercase text-left">Send A Message</h6>
-                        <input type="text" class="validate-required" name="name" placeholder="Your Name" />
-                        <input type="text" class="validate-required validate-email" name="email" placeholder="Email Address" />
-                        <textarea class="validate-required" name="message" rows="4" placeholder="Message"></textarea>
+                        <input type="text" class="validate-required" name="sponsor[name]" placeholder="Your Name" />
+                        <input type="text" class="validate-required validate-email" name="sponsor[email]"] placeholder="Email Address" />
+                        <textarea class="validate-required" name="sponsor[message]" rows="4" placeholder="Message"></textarea>
                         <input type="submit" value="Send Message" />
-                    </form>
+                    <%end%>
                 </div>
             </section>

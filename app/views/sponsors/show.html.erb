@@ -1,0 +1,26 @@
+
+<div class="main-container">
+            <section>
+                <div class="container">
+                    
+                            <div class="col-md-5 col-md-offset-1 col-sm-6">
+                                <div class="description">
+                                    <h4 class="uppercase"><%=@sponsor.name%></h4>
+                                    <div class="mb32 mb-xs-24">
+                                        <span class="number price"><%=@sponsor.email%></span>
+                                    </div>
+                                    <div class="mb32 mb-xs-24">
+                                        <span class="number price"><%=@sponsor.message%></span>
+                                    </div>
+
+                                </div>
+
+                                <hr class="mb48 mb-xs-24">
+                                <%if can? :manage, Sponsor%>
+                                
+                                <%end%>
+                            </div>
+                </div>
+                <!--end of container-->
+            </section>        
+</div>

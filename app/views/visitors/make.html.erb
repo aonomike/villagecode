@@ -32,6 +32,7 @@
                 <!--end of container-->
             </section>
             <section class="image-square right bg-secondary">
+                <%initiative = @initiatives.first%>
                 <div class="col-md-6 image">
                     <div class="background-image-holder overlay">
                         <img alt="image" class="background-image" src="assets/masinde.jpg" />
@@ -39,18 +40,19 @@
                 </div>
                 <div class="col-md-6 content">
                     <div class="text-right text-left-xs">
-                        <h2 class="uppercase">Cool<br />Projects</h2>
+                        <h2 class="uppercase"><%=initiative.initiative_name.html_safe%></h2>
                         <p>
                             <%=t('cool_projects').html_safe%>
                         </p>
-                        <h6 class="uppercase mb8">Come to any session</h6>
-                        <h6 class="uppercase mb8">Multi-session discounts</h6>
+                        <h6 class="uppercase mb8">Come to any initiative</h6>
+                        <h6 class="uppercase mb8">Multi-initiative discounts</h6>
                         <h6 class="uppercase mb8">Train with friends</h6>
-                        <a class="btn btn-lg mt32 mb0" href="#">Book A Session Now</a>
+                        <%=link_to "Book A Session Now",new_initiative_initiative_booking_path(initiative),:class=>"btn btn-lg mt32 mb0"%>
                     </div>
                 </div>
             </section>
             <section class="image-square left">
+                <%initiative = @initiatives.last%>
                 <div class="col-md-6 image">
                     <div class="background-image-holder overlay">
                         <img alt="image" class="background-image" src="assets/mecha.jpg" />
@@ -58,15 +60,15 @@
                 </div>
                 <div class="col-md-6 col-md-offset-1 content overflow-hidden">
                     <div>
-                        <h2 class="uppercase">Mecha <br />Mind</h2>
+                        <h2 class="uppercase"><%=initiative.initiative_name.html_safe%></h2>
                         <p>
                             <%=t('mecha_mind').html_safe%>
                         </p>
                         <h6 class="uppercase mb8">Flexible booking times</h6>
                         <h6 class="uppercase mb8">Personal Advice</h6>
-                        <h6 class="uppercase mb8">Multi-session discounts</h6>
+                        <h6 class="uppercase mb8">Multi-initiative discounts</h6>
                         <h6 class="uppercase mb8">Weekly progress tracking</h6>
-                        <a class="btn btn-lg mt32 mb0" href="#">Book A Session Now</a>
+                        <%=link_to "Book A Session Now",new_initiative_initiative_booking_path(initiative),:class=>"btn btn-lg mt32 mb0"%>
                     </div>
                 </div>
             </section>

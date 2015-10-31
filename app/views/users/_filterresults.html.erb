@@ -1,0 +1,21 @@
+
+ <table class="table cart mb48" id="dataTable" data-user-count="<%=searchresults.size%>" > 
+    <thead> 
+        <tr> 
+            <th>&nbsp;</th> 
+            <th></th> 
+            <th>User</th> 
+            <th>Email</th> 
+            <th>Role</th> 
+            <th>Log In Count</th> 
+        </tr> 
+    </thead>    
+
+    <tbody> 
+        <% searchresults.each do |user| %>
+            <tr>
+                <%= render user %>
+            </tr>
+        <%end%>
+    </tbody> 
+</table> 

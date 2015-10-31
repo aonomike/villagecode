@@ -14,26 +14,33 @@
     <body>
         <%= render "layouts/navigation" %>
         <%if flash[:notice]!=nil%>
-          <div id="alert_message" class="alert alert-dismissible" >
-            <span class="close" data-dismiss="alert">&times;</span>
-            <span><%=flash[:notice].html_safe%></span>
-            <%flash[:notice] = nil %>
-          </div>
+            <div class="row p24" id="alert_message" >
+              <div class="col-md-10 col-md-offset-1">
+                <div class="alert alert-success alert-dismissible" role="alert">
+                  <span class="close" data-dismiss="alert">&times;</span>
+                  <span><%=flash[:notice].html_safe%></span>
+                  <%flash[:notice] = nil %>
+                </div>
+              </div>
+            </div>
         <%elsif flash[:alert]!=nil%>
-          <div id="alert_message" class="alert alert-dismissible" >
-            <span class="close" data-dismiss="alert">&times;</span>
-            <span><%=flash[:alert].html_safe%></span>
-            <%flash[:alert] = nil %>
-          </div>
+          <div class="row p24" id="alert_message" >
+              <div class="col-md-10 col-md-offset-1">
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                  <span class="close" data-dismiss="alert">&times;</span>
+                  <span><%=flash[:alert].html_safe%></span>
+                  <%flash[:alert] = nil %>
+                </div>
+              </div>
+            </div>
         <%end%>
-
         <%= yield %>
         <%= render "layouts/footer" %>
         <%= javascript_include_tag 'application' %>
 
         <script type="text/javascript">
         window.setTimeout(function() {
-            $("#alert_message").fadeTo(500, 0).slideUp(500, function(){
+            $("#alert_message").fadeTo(400, 0).slideUp(400, function(){
               $(this).remove(); 
             });
           }, 3000);

@@ -1,5 +1,17 @@
 module ApplicationHelper
 
+	def clean_up(to_clean)
+		if to_clean=="codeclub"
+			return "#CodeClub"
+		elsif to_clean=="tbc"
+			return "Teen Business Challenge"
+		elsif to_clean=="make"
+			return "#WeMake"
+		else
+			return to_clean.gsub("<br/>"," ")
+		end
+	end
+	
 	def get_random_text(number)
 		if(number==1)
 			return I18n.t 'one'
@@ -8,6 +20,10 @@ module ApplicationHelper
 		else 
 			return I18n.t 'three'
 		end
+	end
+
+	def get_people_count
+		return Volunteer.all.size+User.all.size+Subscriber.all.size+Sponsor.all.size
 	end
 	
 	def get_value_from_date(created_at,value)
