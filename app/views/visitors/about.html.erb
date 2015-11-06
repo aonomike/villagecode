@@ -44,8 +44,8 @@
                             <hr class="visible-xs">
                         </div>
                         <div class="col-md-5 col-sm-7">
-                        <!-- t('village_code_idea')-->
-                            <%= @page_items.first.item_content.html_safe%>
+                        <%=t('village_code_idea').html_safe%>
+                            <!--%= @page_items.first.item_content.html_safe%-->
                             <% if can? :update, PageItem %>
                               <p>
                                 <a class="btn btn-sm page-item-btn hidden" href="#">Edit Page Item</a>
